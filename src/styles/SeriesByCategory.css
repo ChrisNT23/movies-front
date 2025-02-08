@@ -1,0 +1,39 @@
+.series-category-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .series-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .series-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .series-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .series-card h3 {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .series-card p {
+    color: #ff9800;
+    font-weight: bold;
+  }
+  
+  .series-card:hover {
+    transform: scale(1.05);
+  }
+  

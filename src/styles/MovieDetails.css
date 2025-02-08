@@ -1,0 +1,85 @@
+/* Fondo de pantalla completa */
+.movie-backdrop {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(253, 253, 253);
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .overlay h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .tagline {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #ffcc00;
+  }
+  
+  /* Contenedor general */
+  .movie-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+  
+  /* Póster de la película */
+  .movie-poster img {
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Información de la película */
+  .movie-info {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .movie-info strong {
+    color: #222;
+  }
+  
+  .movie-info a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .movie-info a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .movie-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .movie-poster img {
+      width: 250px;
+    }
+  }
+  
