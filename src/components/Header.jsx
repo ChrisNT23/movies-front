@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useCategories from "../hooks/useCategories";
 import "../styles/Header.css";
 
-const Header = () => {
+const Header = ({ searchTerm, setSearchTerm }) => {
   const movieCategories = useCategories("movie");
   const tvCategories = useCategories("tv");
 
@@ -20,7 +20,7 @@ const Header = () => {
     };
 
     checkAuth();
-    window.addEventListener("storage", checkAuth); // Escucha cambios en localStorage
+    window.addEventListener("storage", checkAuth);
 
     return () => {
       window.removeEventListener("storage", checkAuth);
@@ -28,9 +28,9 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("user"); // Elimina usuario
+    localStorage.removeItem("user");
     setIsAuthenticated(false);
-    navigate("/login"); // Redirige al login
+    navigate("/login");
   };
 
   return (
@@ -45,15 +45,11 @@ const Header = () => {
           onMouseEnter={() => setShowMoviesMenu(true)}
           onMouseLeave={() => setShowMoviesMenu(false)}
         >
-          <span className="nav-item">Películas </span>
+          <span className="nav-item">Películas</span>
           {showMoviesMenu && (
             <div className="dropdown-menu">
               {movieCategories.map((category) => (
-                <Link
-                  key={category.id}
-                  to={`/movies/category/${category.id}`}
-                  className="dropdown-item"
-                >
+                <Link key={category.id} to={`/movies/category/${category.id}`} className="dropdown-item">
                   {category.name}
                 </Link>
               ))}
@@ -66,21 +62,26 @@ const Header = () => {
           onMouseEnter={() => setShowTvMenu(true)}
           onMouseLeave={() => setShowTvMenu(false)}
         >
-          <span className="nav-item">Series </span>
+          <span className="nav-item">Series</span>
           {showTvMenu && (
             <div className="dropdown-menu">
               {tvCategories.map((category) => (
-                <Link
-                  key={category.id}
-                  to={`/series/category/${category.id}`}
-                  className="dropdown-item"
-                >
+                <Link key={category.id} to={`/series/category/${category.id}`} className="dropdown-item">
                   {category.name}
                 </Link>
               ))}
             </div>
           )}
         </div>
+
+        {/* Input de búsqueda */}
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Buscar películas..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
 
         {isAuthenticated && (
           <button className="nav-item logout-button" onClick={handleLogout}>

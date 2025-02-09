@@ -75,3 +75,24 @@
         height: 280px;
     }
 }
+
+
+/* Estrella de favoritos */
+.favorite-star {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    color: #ccc;
+}
+
+.favorite-star.active {
+    color: #ffcc00;
+    transform: scale(1.2);
+}
+
+.favorite-star:hover {
+    transform: scale(1.3);
+}
